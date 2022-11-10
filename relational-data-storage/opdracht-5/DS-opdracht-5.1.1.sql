@@ -1,0 +1,1 @@
+select count(hitcount) , avg(hitcount),min(hitcount), max(hitcount), sum(hitcount) from mhl_hitcount
