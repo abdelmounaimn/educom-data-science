@@ -19,6 +19,7 @@ if(s.p_address like '',
 (select d.name as provincie from mhl_districts as d where id = (select district_ID from mhl_communes where id= (select commune_ID from mhl_cities where id=(s.city_ID)))),
 (select d.name as provincie from mhl_districts as d where id = (select district_ID from mhl_communes where id= (select commune_ID from mhl_cities where id=(s.p_city_ID))))
 ) as provicie
-from mhl_suppliers as s
-join mhl_contacts as con on s.id=con.supplier_ID 
-order by provicie , stad , naam
+from mhl_suppliers as s 
+left join mhl_contacts as con on s.id=con.supplier_ID 
+where (s.p_address not like '' or s.straat not like '' )
+order by provicie , stad , naam;
