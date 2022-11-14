@@ -1,0 +1,1 @@
+select  id, joindate ,DATEDIFF( CURRENT_TIMESTAMP,joindate) as dagenLid from mhl_suppliers order by dagenLid;
